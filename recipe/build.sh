@@ -40,6 +40,7 @@ cmake .. -G "Ninja" \
     -DBUILD_SHARED_LIBS:BOOL=ON \
     -DVTK_WRAP_PYTHON:BOOL=ON \
     -DModule_vtkPythonInterpreter:BOOL=OFF \
+    -DModule_vtkIOGDAL:BOOL=ON \
     -DVTK_PYTHON_VERSION:STRING="${PY_VER}" \
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF \
     -DVTK_RENDERING_BACKEND=OpenGL2 \

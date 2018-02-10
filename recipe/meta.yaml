@@ -1,24 +1,20 @@
-{% set sha = "3056e46" %}
-{% set version = "8.1.0." ~ sha %}
-{% set build_number = 0 %}
-{% set minor_version = ".".join(version.split(".")[:2]) %}
+#{% set sha = "3056e46" %}
 {% set with_osmesa = os.environ.get('VTK_WITH_OSMESA', 'False') %}
 
 {% if with_osmesa == "False" %}
-{% set build_number = build_number + 200 %}
 {% endif %}
 
 package:
   name: vtk
-  version: {{ version }}
+  version: {{ environ['GIT_DESCRIBE_TAG'] ~ "." ~ environ['GIT_DESCRIBE_NUMBER'] ~ "." ~ environ['GIT_DESCRIBE_HASH'] }}
 
 source:
-  git_rev: {{ sha }}
+#  git_rev: {{ sha }}
+  git_branch: master
   git_url: https://gitlab.kitware.com/vtk/vtk.git
 
 build:
   skip: True  # [win and py27]
-  number: {{ build_number }}
   features:
     - vc14  # [win and py35]
     - vc14  # [win and py36]
@@ -43,6 +39,7 @@ requirements:
     - libpng >=1.6.32,<1.6.35
     - jpeg 9*
     - libtiff >=4.0.8,<4.0.10
+    - libgdal
     - jsoncpp >=1.6.2
     - expat 2.2.*
     - tbb
@@ -60,6 +57,7 @@ requirements:
     - libpng >=1.6.32,<1.6.35
     - jpeg 9*
     - libtiff >=4.0.8,<4.0.10
+    - libgdal
     - jsoncpp >=1.6.2
     - expat 2.2.*
     - tbb
