@@ -39,7 +39,7 @@ requirements:
     - libpng >=1.6.32,<1.6.35
     - jpeg 9*
     - libtiff >=4.0.8,<4.0.10
-    - libgdal 2.2.3.*
+    - libgdal 2.2.*
     - jsoncpp 1.8.3.*
     - expat 2.2.*
     - tbb
@@ -57,7 +57,7 @@ requirements:
     - libpng >=1.6.32,<1.6.35
     - jpeg 9*
     - libtiff >=4.0.8,<4.0.10
-    - libgdal 2.2.3.*
+    - libgdal 2.2.*
     - jsoncpp 1.8.3.*
     - expat 2.2.*
     - tbb
